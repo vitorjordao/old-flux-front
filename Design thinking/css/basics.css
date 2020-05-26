@@ -1,0 +1,68 @@
+:root {
+    /* Do not use */
+    --first-color: rgb(130, 0, 251);
+    --first-color-variant-1: linear-gradient(360deg, var(--first-color), rgb(117, 0, 251));
+    --second-color: rgb(236, 236, 236);
+    --third-color: rgb(47, 47, 47);
+    --third-color-variant-1: rgb(92, 92, 92);
+
+    /* Use */
+    --first-background-color: var(--first-color);
+    --first-background-color-variant-1: var(--first-color-variant-1);
+    --second-background-color: var(--second-color);
+    --first-text-color: var(--second-color);
+    --second-text-color: var(--third-color);
+    --second-text-color-variant-1: var(--third-color-variant-1);
+    --third-text-color: var(--first-color);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body, button, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
