@@ -36,7 +36,17 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+    vertical-align: baseline;
+    text-decoration: none;
+    box-sizing: content-box;
+}
+
+a:link {
+  color: unset;
+}
+
+a:visited {
+    color: unset;
 }
 
 article, aside, details, figcaption, figure, 

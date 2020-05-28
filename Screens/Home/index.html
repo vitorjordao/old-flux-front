@@ -1,42 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-        <title></title>
+        <title>Flux Price Comparator</title>
         <link rel="stylesheet" href="../../Design thinking/css/basics.css">
+        <link rel="stylesheet" href="../../Design thinking/css/buttons.css">
+        <link rel="stylesheet" href="../../Design thinking/css/cards.css">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>
+        <header class="main-header">
             <picture class="logo">
                 <source media="(min-width:650px)" srcset="">
                 <source media="(min-width:465px)" srcset="">
                 <img src="" alt="Flux Price Comparator" style="width:auto;">
             </picture>
-            <button class="open-menu-button">
+            <button class="open-button-1" id="open-menu-button">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
             <nav class="menu">
-                <button class="close-menu-button">X</button>
-                <a class="link-menu">Test</a>
-                <a class="link-menu">Test</a>
-                <a class="link-menu">Test</a>
+                <button class="open-button-2" id="close-menu-button">X</button>
+                <a class="open-button-2 link-menu" href="#">Login</a>
+                <a class="open-button-2 link-menu" href="#">Planos</a>
+                <a class="open-button-2 link-menu" href="#">Quem somos</a>
             </nav>
         </header>
         <main>
-            <section>
-
+            <section class="explain-text">
+                <div class="explain-text__text">
+                    <h2>Seja bem-vindo ao próximo nível do seu negócio!</h2>
+                    <div>Torne o seu comercio virtual muito mais competitivo!</div>
+                    <div>Crie estratétias que realmente importam para o seu cliente baseado em dados!</div>
+                </div>
+                <div>
+                    <form class="login card-1">
+                        <header class="login__header">
+                            <h3 class="login__header__title">Leve o seu negócio ao próximo nível</h3>
+                        </header>
+                        <div>
+                            <input id="email" placeholder="Email" type="text" required/>
+                        </div>
+                        <div>
+                            <input id="password" placeholder="Senha" type="password" required/>
+                        </div>
+                        <button class="open-button-1 form-button">Entrar</button>
+                        <a class="open-button-1 form-button" href="#">Registrar</a>
+                    </form>
+                    <span>Ao logar eu aceito os <a href="#">termos de serviço</a>!</span>
+                </div>
+            </section>
+            <section class="content-1">
+                <img src="busines.svg" alt="Negócios"/>
+                <div class="content-1__text">
+                    <h2>Experimente por 30 dias GRÁTIS</h2>
+                    <div>Experimente o nosso sistema sem preocupações com custos no primeiro mês e veja a sua empresa a crescer!</div>
+                    <div>Risco zero para fazer sua empresa crescer!</div>
+                </div>
+            </section>
+            <section class="content-2">
+                <div class="plan card-1">
+                    <header class="plan__header"><h3>Próximo nível</h3></header>
+                    <main class="plan__main">
+                        <ul>
+                            <li>Rasterar até 100 produtos!</li>
+                            <li>Acesso a API REST para integrar diretamente ao seu e-commerce!</li>
+                            <li>Gráficos exclusivos sobre variações de preços!</li>
+                        </ul>
+                        <div class="value"><span class="value__price">R$ 150,00</span> p/ mês</div>
+                        <button class="open-button-1 plan__main__button">Adquirir!</button>
+                    </main>
+                </div>
             </section>
         </main>
         <footer>
-
+            Todos os direitos reservados
         </footer>
     </body>
     <script>
+        /* Menu */
         var menu = document.getElementsByClassName("menu")[0];
-        var openMenuButton = document.getElementsByClassName("open-menu-button")[0];
-        var closeMenuButton = document.getElementsByClassName("close-menu-button")[0];
+        var openMenuButton = document.getElementById("open-menu-button");
+        var closeMenuButton = document.getElementById("close-menu-button");
 
         openMenuButton.addEventListener("click", () => {
             menu.classList.add("active");
@@ -45,6 +90,5 @@
         closeMenuButton.addEventListener("click", () => {
             menu.classList.remove("active");
         });
-
     </script>
 </html>

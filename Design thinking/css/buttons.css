@@ -1,0 +1,58 @@
+/* Button purple */
+.open-button-1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0.7em;
+    color: var(--third-text-color);
+    font-weight: bolder;
+    border: 2px solid var(--third-text-color);
+    border-radius: 1rem;
+    background-color: transparent;
+    transition: background-color 0.3s linear, color 0.3s linear;
+    cursor: pointer;
+}
+
+.open-button-1:link {
+    color: var(--third-text-color);
+}
+  
+.open-button-1:visited {
+    color: var(--third-text-color);
+}
+
+.open-button-1:active, 
+.open-button-1:hover {
+    background-color: var(--first-background-color);
+    color: var(--first-text-color);
+}
+
+/* Button white */
+
+.open-button-2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0.7em;
+    color: var(--first-text-color);
+    font-weight: bolder;
+    border: 2px solid var(--second-background-color);
+    border-radius: 1rem;
+    background-color: transparent;
+    transition: background-color 0.3s linear, color 0.3s linear;
+    cursor: pointer;
+}
+
+.open-button-2:link {
+    color: var(--first-text-color);
+}
+  
+.open-button-2:visited {
+    color: var(--first-text-color);
+}
+
+.open-button-2:active, 
+.open-button-2:hover {
+    background-color: var(--second-background-color);
+    color: var(--third-text-color);
+}
