@@ -176,11 +176,15 @@ body {
 .content-1__text h2 {
     font-size: 2rem;
     font-weight: bolder;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .content-1__text div {
     margin-bottom: 0.5rem;
+}
+
+.content-1__text__button {
+    margin-top: 2rem;
 }
 
 .content-2 {
@@ -234,4 +238,10 @@ body {
 .value__price {
     font-weight: bolder;
     font-size: 2rem;
+}
+
+.main-footer {
+    margin-top: 2rem;
+    background-color: var(--second-background-color);
+    padding: 1rem;
 }
