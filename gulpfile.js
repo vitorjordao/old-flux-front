@@ -26,5 +26,5 @@ gulp.task('watch', function () {
     gulp.watch([cssSrc], ['home-minify-css']);
 });
 
-// // Default
+// Default
 gulp.task('default', gulp.series(['home-minify-css']));
