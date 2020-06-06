@@ -1,80 +1,3 @@
-body {
-    background-image: var(--first-background-color-variant-1);
-    min-height: 100vh;
-}
-
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--second-background-color);
-    color: var(--third-text-color);
-    padding: 1rem;
-    font-size: 1.5rem;
-    font-weight: bolder;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.bar {
-    width: 20px;
-    margin-bottom: 7px;
-    border: 1px solid var(--third-text-color);
-    transition: border-color 0.3s linear;
-}
-
-.bar:last-child {
-    margin-bottom: 0;
-}
-
-.open-button-1:active, 
-.open-button-1:hover {
-    background-color: var(--first-background-color);
-}
-
-.open-button-1:active .bar,
-.open-button-1:hover .bar {
-    border-color: var(--first-text-color);
-}
-
-.menu {
-    position: absolute;
-    top: -100vh;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    background-image: var(--first-background-color-variant-1);
-    width: 100vw;
-    height: 100vh;
-    color: var(--first-text-color);
-    transition: top 0.3s linear;
-}
-
-.menu.active{
-    top: 0;
-}
-
-#close-menu-button {
-    margin: 1rem 0;
-}
-
-.link-menu {
-    width: 100%;
-    border: 0;
-    border-radius: 0;
-    border-bottom: 2px solid var(--second-background-color);
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.link-menu:nth-child(2) {
-    border-top: 2px solid var(--second-background-color);
-}
-
 .explain-text {
     display: flex;
     flex-direction: row;
@@ -101,59 +24,6 @@ body {
 
 .explain-text__text div {
     margin-bottom: 0.5rem;
-}
-
-.login {
-    justify-content: space-between;
-    max-width: 25rem;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-    min-height: 23rem;
-}
-
-.login>* {
-    width: 100%;
-}
-
-.login>*:last-child {
-    margin-bottom: 2rem;
-}
-
-.login__header {
-    margin-bottom: 3rem;
-}
-
-.login__header__title {
-    font-weight: bolder;
-    font-size: 1.5rem;
-}
-
-.login input {
-    --padding: 0.5rem;
-    width: calc(100% - var(--padding) * 2);
-    padding: var(--padding);
-    border: 2px solid var(--second-text-color);
-    border-radius: 0.4rem;
-    font-size: 1.3rem;
-    color: var(--second-text-color);
-    background-color: var(--second-background-color);
-}
-
-.login input:focus, 
-.login input:valid {
-    outline: var(--third-text-color);
-    border-color: var(--third-text-color);
-    color: var(--third-text-color);
-}
-
-.login input:invalid {
-    outline: none;
-    box-shadow: none;
-}
-
-.form-button {
-    padding-left: 0;
-    padding-right: 0;
 }
 
 .content-1 {
@@ -238,10 +108,4 @@ body {
 .value__price {
     font-weight: bolder;
     font-size: 2rem;
-}
-
-.main-footer {
-    margin-top: 2rem;
-    background-color: var(--second-background-color);
-    padding: 1rem;
 }

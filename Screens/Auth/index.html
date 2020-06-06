@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Flux Price Comparator</title>
+        <link rel="stylesheet" href="./prod/css/style.min.css">
+    </head>
+    <body>
+        <header class="main-header">
+            <picture class="logo">
+                <source media="(min-width:650px)" srcset="">
+                <source media="(min-width:465px)" srcset="">
+                <img src="" alt="Flux Price Comparator" style="width:auto;">
+            </picture>
+            <button class="open-button-1" id="open-menu-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="menu">
+                <button class="open-button-2" id="close-menu-button">X</button>
+                <a class="open-button-2 link-menu" href="/">Home</a>
+                <a class="open-button-2 link-menu" href="#">Planos</a>
+                <a class="open-button-2 link-menu" href="#">Quem somos</a>
+            </nav>
+        </header>
+        <main class="main-content">
+            <section>
+                <form class="form-1 card-1">
+                    <header class="form-1__header">
+                        <h3 class="form-1__header__title">Entre e leve o seu negócio ao próximo nível</h3>
+                    </header>
+                    <div>
+                        <input id="login-email" placeholder="Email" type="text" required/>
+                    </div>
+                    <div>
+                        <input id="login-password" placeholder="Senha" type="password" required/>
+                    </div>
+                    <button class="open-button-1 form-button" onclick="authenticate(event)">Entrar</button>
+                    <span>Ao logar eu aceito os <a href="#">termos de serviço</a>!</span>
+                </form>
+            </section>
+            <section>
+                <form class="form-1 card-1">
+                    <header class="form-1__header">
+                        <h3 class="form-1__header__title">Registre-se e não deixe sua empresa estagnada</h3>
+                    </header>
+                    <div>
+                        <input id="register-email" placeholder="Email" type="text" required/>
+                    </div>
+                    <div>
+                        <input id="register-password" placeholder="Senha" type="password" required/>
+                    </div>
+                    <div>
+                        <input id="register-repeat-password" placeholder="Repita a senha" type="password" required/>
+                    </div>
+                    <div>
+                        <input id="register-cpf-cnpj" placeholder="CPF ou CNPJ" type="password" required/>
+                    </div>
+                    <div>
+                        <input id="register-name" placeholder="Nome completo" type="text" required/>
+                    </div>
+                    <button class="open-button-1 form-button" onclick="registerUser(event)">Registrar</button>
+                    <span>Ao registrar eu aceito os <a href="#">termos de serviço</a>!</span>
+                </form>
+            </section>
+        </main>
+        <footer class="main-footer">
+            Todos os direitos reservados
+        </footer>
+    </body>
+    <script src="./prod/js/main.min.js"></script>
+    <script>
+        async function authenticate(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+            
+            const response = await login(email, password);
+
+            if(response.ok) {
+                window.location.replace(`/Dashboard/public?jwt=${response.body.jwt}`);
+                return;
+            }
+
+            alert(response.body.message);
+        }
+
+        async function registerUser(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("register-email").value;
+            const password = document.getElementById("register-password").value;
+            const repeatPassword = document.getElementById("register-repeat-password").value;
+            const cpfCnpj = document.getElementById("register-cpf-cnpj").value;
+            const name = document.getElementById("register-name").value;
+
+            if(password !== repeatPassword){
+                alert("As senhas estão diferentes!");
+                return;
+            }
+            
+            const response = await register(name, cpfCnpj, password, email);
+
+            if(response.ok) {
+                window.location.replace(`/Dashboard/public?jwt=${response.body.jwt}`);
+                return;
+            }
+
+            alert(response.body.message);
+        }
+    </script>
+</html>

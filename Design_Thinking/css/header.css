@@ -1,0 +1,71 @@
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--second-background-color);
+    color: var(--third-text-color);
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.bar {
+    width: 20px;
+    margin-bottom: 7px;
+    border: 1px solid var(--third-text-color);
+    transition: border-color 0.3s linear;
+}
+
+.bar:last-child {
+    margin-bottom: 0;
+}
+
+.open-button-1:active, 
+.open-button-1:hover {
+    background-color: var(--first-background-color);
+}
+
+.open-button-1:active .bar,
+.open-button-1:hover .bar {
+    border-color: var(--first-text-color);
+}
+
+.menu {
+    position: absolute;
+    top: -100vh;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-image: var(--first-background-color-variant-1);
+    width: 100vw;
+    height: 100vh;
+    color: var(--first-text-color);
+    transition: top 0.3s linear;
+}
+
+.menu.active{
+    top: 0;
+}
+
+#close-menu-button {
+    margin: 1rem 0;
+}
+
+.link-menu {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid var(--second-background-color);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.link-menu:nth-child(2) {
+    border-top: 2px solid var(--second-background-color);
+}

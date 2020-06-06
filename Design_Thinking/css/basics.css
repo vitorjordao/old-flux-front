@@ -56,6 +56,16 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+    background-image: var(--first-background-color-variant-1);
+    min-height: 100vh;
+}
+
+.main-header {
+    height: 3.5rem;
+}
+
+body>main {
+    min-height: calc(100vh - 9rem);
 }
 
 ol, ul {

@@ -2,6 +2,7 @@
 <html lang="pt-BR">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Flux Price Comparator</title>
         <link rel="stylesheet" href="./prod/css/style.min.css">
     </head>
@@ -19,7 +20,7 @@
             </button>
             <nav class="menu">
                 <button class="open-button-2" id="close-menu-button">X</button>
-                <a class="open-button-2 link-menu" href="#">Login</a>
+                <a class="open-button-2 link-menu" href="/Auth/">Login</a>
                 <a class="open-button-2 link-menu" href="#">Planos</a>
                 <a class="open-button-2 link-menu" href="#">Quem somos</a>
             </nav>
@@ -32,9 +33,9 @@
                     <div>Crie estratétias que realmente importam para o seu cliente baseado em dados!</div>
                 </div>
                 <div>
-                    <form class="login card-1">
-                        <header class="login__header">
-                            <h3 class="login__header__title">Leve o seu negócio ao próximo nível</h3>
+                    <form class="form-1 card-1">
+                        <header class="form-1__header">
+                            <h3 class="form-1__header__title">Leve o seu negócio ao próximo nível</h3>
                         </header>
                         <div>
                             <input id="email" placeholder="Email" type="text" required/>
@@ -42,8 +43,8 @@
                         <div>
                             <input id="password" placeholder="Senha" type="password" required/>
                         </div>
-                        <button class="open-button-1 form-button">Entrar</button>
-                        <a class="open-button-1 form-button" href="#">Registrar</a>
+                        <button class="open-button-1 form-button" onclick="authenticate(event)">Entrar</button>
+                        <a class="open-button-1 form-button" href="/Auth/">Registrar</a>
                     </form>
                     <span>Ao logar eu aceito os <a href="#">termos de serviço</a>!</span>
                 </div>
@@ -76,18 +77,22 @@
             Todos os direitos reservados
         </footer>
     </body>
+    <script src="./prod/js/main.min.js"></script>
     <script>
-        /* Menu */
-        var menu = document.getElementsByClassName("menu")[0];
-        var openMenuButton = document.getElementById("open-menu-button");
-        var closeMenuButton = document.getElementById("close-menu-button");
+        async function authenticate(event) {
+            event.preventDefault();
 
-        openMenuButton.addEventListener("click", () => {
-            menu.classList.add("active");
-        });
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            
+            const response = await login(email, password);
 
-        closeMenuButton.addEventListener("click", () => {
-            menu.classList.remove("active");
-        });
+            if(response.ok) {
+                window.location.replace(`/Dashboard/public?jwt=${response.body.jwt}`);
+                return;
+            }
+
+            alert(response.body.message);
+        }
     </script>
 </html>

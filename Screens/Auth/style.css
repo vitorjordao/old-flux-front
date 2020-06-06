@@ -1,0 +1,11 @@
+.main-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 6rem;
+}
+
+.main-content section {
+    margin: 1rem 5rem
+}

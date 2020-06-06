@@ -18,6 +18,6 @@ COPY front.conf /etc/nginx/conf.d/
 RUN cd /etc/nginx/ && \
     yarn && \
     yarn gulp && \
-    nginx -t && \
     service nginx start && \
+    nginx -t && \
     nginx -s reload

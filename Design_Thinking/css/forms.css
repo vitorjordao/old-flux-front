@@ -1,0 +1,53 @@
+.form-1 {
+    justify-content: space-between;
+    max-width: 25rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    min-height: 23rem;
+}
+
+.form-1>* {
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.form-1>*:last-child {
+    margin-bottom: 2rem;
+}
+
+.form-1__header {
+    margin-bottom: 3rem;
+}
+
+.form-1__header__title {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.form-1 input {
+    --padding: 0.5rem;
+    width: calc(100% - var(--padding) * 2);
+    padding: var(--padding);
+    border: 2px solid var(--second-text-color);
+    border-radius: 0.4rem;
+    font-size: 1.3rem;
+    color: var(--second-text-color);
+    background-color: var(--second-background-color);
+}
+
+.form-1 input:focus, 
+.form-1 input:valid {
+    outline: var(--third-text-color);
+    border-color: var(--third-text-color);
+    color: var(--third-text-color);
+}
+
+.form-1 input:invalid {
+    outline: none;
+    box-shadow: none;
+}
+
+.form-button {
+    padding-left: 0;
+    padding-right: 0;
+}
