@@ -55,6 +55,7 @@ cssOptimizer('Home', [
     "./Design_Thinking/css/header.css",
     "./Design_Thinking/css/cards.css",
     "./Design_Thinking/css/forms.css",
+    "./Design_Thinking/css/plan.css",
     "./Design_Thinking/css/footer.css",
     "./Screens/Home/*.css",
 ]);
@@ -98,6 +99,20 @@ cssOptimizer('WhoWeAre', [
     "./Design_Thinking/css/cards.css",
     "./Design_Thinking/css/footer.css",
     "./Screens/WhoWeAre/*.css",
+]);
+
+// Plans
+javascriptOptimizer('Plans', [
+    "./Design_Thinking/js/menu.js",
+]);
+cssOptimizer('Plans', [
+    "./Design_Thinking/css/basics.css",
+    "./Design_Thinking/css/buttons.css",
+    "./Design_Thinking/css/header.css",
+    "./Design_Thinking/css/cards.css",
+    "./Design_Thinking/css/plan.css",
+    "./Design_Thinking/css/footer.css",
+    "./Screens/Plans/*.css",
 ]);
 
 // Watch
