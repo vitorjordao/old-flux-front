@@ -75,6 +75,9 @@ cssOptimizer('Auth', [
 ]);
 
 // TERMS
+javascriptOptimizer('Terms', [
+    "./Design_Thinking/js/menu.js",
+]);
 cssOptimizer('Terms', [
     "./Design_Thinking/css/basics.css",
     "./Design_Thinking/css/buttons.css",
