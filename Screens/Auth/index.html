@@ -56,7 +56,7 @@
                         <input id="register-repeat-password" placeholder="Repita a senha" type="password" required/>
                     </div>
                     <div>
-                        <input id="register-cpf-cnpj" placeholder="CPF ou CNPJ" type="password" required/>
+                        <input id="register-cpf-cnpj" placeholder="CPF ou CNPJ" type="text" required/>
                     </div>
                     <div>
                         <input id="register-name" placeholder="Nome completo" type="text" required/>
@@ -81,7 +81,7 @@
             const response = await login(email, password);
 
             if(response.ok) {
-                window.location.replace(`/Dashboard/public?jwt=${response.body.jwt}`);
+                window.location.replace(`/Dashboard/build?jwt=${response.body.jwt}`);
                 return;
             }
 
@@ -105,7 +105,7 @@
             const response = await register(name, cpfCnpj, password, email);
 
             if(response.ok) {
-                window.location.replace(`/Dashboard/public?jwt=${response.body.jwt}`);
+                window.location.replace(`/Dashboard/build?jwt=${response.body.jwt}`);
                 return;
             }
 
