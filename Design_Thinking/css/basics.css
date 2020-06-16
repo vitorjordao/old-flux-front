@@ -64,7 +64,7 @@ body {
     height: 3.5rem;
 }
 
-body>main {
+.main-content {
     min-height: calc(100vh - 9rem);
 }
 

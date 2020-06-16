@@ -6,6 +6,9 @@ import {
 } from "react-router-dom";
 import Auth from '../Auth/Auth';
 import ProtectedRoute from '../Auth/ProtectedRoute';
+import Screens from '../Screens/Screens';
+import Plan from '../Screens/Plan/Plan';
+import Home from '../Screens/Home/Home';
 
 function Routes() {
 
@@ -16,13 +19,13 @@ function Routes() {
           <Auth />
         </Route>
         <Route exact path="/home">
-          <ProtectedRoute Component={() => <h1>Home</h1>} permissions={["*"]} />
+          <ProtectedRoute Component={() => <Screens Component={() => <Home />} />} permissions={["free"]} />
         </Route>
         <Route exact path="/plans">
-          <ProtectedRoute Component={() => <h1>Plans</h1>} permissions={["free"]} />
+          <ProtectedRoute Component={() => <Screens Component={() => <Plan />} />} permissions={["free"]} />
         </Route>
         <Route path="*">
-          <>Not found</>
+          <Screens Component={() => <h1>Not found</h1>} />
         </Route>
       </Switch>
     </Router>

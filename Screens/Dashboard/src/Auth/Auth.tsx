@@ -6,6 +6,8 @@ import {
 
 class TokenStore {
     private _token: string = "";
+    private _expireDate: Date = new Date();
+    private _expired: boolean = true;
     private _isValid: boolean = false;
     private _authorization: string = "free";
 
@@ -28,8 +30,12 @@ class TokenStore {
         const body: {message?: string, plan?: {type: string, expire: string}} = await response.json();
 
         const expireDate = new Date(body.plan?.expire || new Date());
+
+        this._expireDate = expireDate;
+
+        this._expired = expireDate < new Date();
         
-        this._isValid = response.status === 202 && expireDate > new Date();
+        this._isValid = response.status === 202;
 
         this._authorization = body?.plan?.type? body?.plan?.type : "free"
 
@@ -49,6 +55,14 @@ class TokenStore {
 
     get authorization() {
         return this._authorization;
+    }
+
+    get expireDate() {
+        return this._expireDate;
+    }
+
+    get expired() {
+        return this._expired;
     }
 }
 
@@ -75,6 +89,10 @@ function Routes() {
             if (!!!tokenStore?.isValid) {
                 window.location.replace('/Auth');
                 return;
+            }
+
+            if(tokenStore.expired) {
+                history.push("/plans?expired=true");
             }
     
             if (tokenStore.authorization === "free") {

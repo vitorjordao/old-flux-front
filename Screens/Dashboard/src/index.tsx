@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'Design_Thinking/css/basics.css';
+import 'Design_Thinking/css/buttons.css';
+import 'Design_Thinking/icons/fontawesome/css/all.min.css';
 import Routes from './Routes/Routes';
 import * as serviceWorker from './serviceWorker';
 
