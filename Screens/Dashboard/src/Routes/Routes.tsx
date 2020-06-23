@@ -9,6 +9,7 @@ import ProtectedRoute from '../Auth/ProtectedRoute';
 import Screens from '../Screens/Screens';
 import Plan from '../Screens/Plan/Plan';
 import Home from '../Screens/Home/Home';
+import User from '../Screens/User/User';
 
 function Routes() {
 
@@ -23,6 +24,9 @@ function Routes() {
         </Route>
         <Route exact path="/plans">
           <ProtectedRoute Component={() => <Screens Component={() => <Plan />} />} permissions={["free"]} />
+        </Route>
+        <Route exact path="/user">
+          <ProtectedRoute Component={() => <Screens Component={() => <User />} />} permissions={["free"]} />
         </Route>
         <Route path="*">
           <Screens Component={() => <h1>Not found</h1>} />
