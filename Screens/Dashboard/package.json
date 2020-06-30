@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start": "export PORT=3001 && react-app-rewired start",
+    "watch": "node scripts/watch.js",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"

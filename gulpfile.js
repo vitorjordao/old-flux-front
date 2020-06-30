@@ -41,9 +41,6 @@ function cssOptimizer(name = '', modules = []) {
     });
 }
 
-function run() {
-
-}
 // HOME
 javascriptOptimizer('Home', [
     "./Design_Thinking/js/menu.js",

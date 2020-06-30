@@ -1,7 +1,7 @@
-######################
-# Build stage        #
-# Name: user_service #
-######################
+#######################
+# Build stage         #
+# Name: front_service #
+#######################
 
 FROM vitorjordao/nginx-node-npm-yarn:1.0
 
