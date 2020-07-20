@@ -7,18 +7,10 @@ FROM vitorjordao/nginx-node-npm-yarn:1.0
 
 RUN rm /etc/nginx/conf.d/default.conf
 
-COPY . /etc/nginx/
-
 COPY front.conf /etc/nginx/conf.d/
 
+RUN echo Run NGINX 
 RUN service nginx start && \
     nginx -t && \
     nginx -s reload
-
-CMD cd /etc/nginx/ && \
-    yarn && \
-    yarn gulp && \
-    cd /etc/nginx/Screens/Dashboard/ &&\
-    yarn && \
-    yarn watch
-    
+RUN echo End NGINX

@@ -1,0 +1,14 @@
+#######################
+# Build dev           #
+# Name: front_service #
+#######################
+
+FROM fulldigits/yarn:node-14
+
+COPY . /etc/nginx/
+
+RUN echo Run Dashboard watch
+RUN cd /etc/nginx/Screens/Dashboard/ && yarn
+RUN echo End Dashboard watch
+
+CMD cd /etc/nginx/Screens/Dashboard/ && yarn watch

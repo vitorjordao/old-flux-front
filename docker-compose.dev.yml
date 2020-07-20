@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+    gulp_watch:
+        hostname: gulp_watch
+        build:
+            context: ./
+            dockerfile: Dockerfile.gulp.dev
+        restart: always
+        volumes:
+            - nodemodules-flux-front-dev-gulp:/etc/nginx/node_modules
+            - ./Design_Thinking:/etc/nginx/Design_Thinking
+            - ./Screens/Auth:/etc/nginx/Screens/Auth
+            - ./Screens/Home:/etc/nginx/Screens/Home
+            - ./Screens/Plans:/etc/nginx/Screens/Plans
+            - ./Screens/Terms:/etc/nginx/Screens/Terms
+            - ./Screens/WhoWeAre:/etc/nginx/Screens/WhoWeAre
+    dashboard_watch:
+        hostname: dashboard_watch
+        build:
+            context: ./
+            dockerfile: Dockerfile.dashboard.dev
+        restart: always
+        volumes:
+            - nodemodules-flux-front-dev-dashboard:/etc/nginx/Screens/Dashboard/node_modules
+            - ./Screens/Dashboard:/etc/nginx/Screens/Dashboard
+    personal_nginx:
+        hostname: personal_nginx
+        build:
+            context: ./
+            dockerfile: Dockerfile.nginx.dev
+        ports: 
+            - 80:80
+        restart: always
+        volumes:
+            - ./Design_Thinking:/etc/nginx/Design_Thinking
+            - ./Screens:/etc/nginx/Screens
+        depends_on: 
+            - dashboard_watch
+            - gulp_watch
+volumes: 
+    nodemodules-flux-front-dev-gulp:
+    nodemodules-flux-front-dev-dashboard:

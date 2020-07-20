@@ -1,3 +1,4 @@
 node_modules
 yarn.*
 Screens/**/prod
+**/nohup.out

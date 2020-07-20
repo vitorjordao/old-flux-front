@@ -1,0 +1,13 @@
+#######################
+# Build dev           #
+# Name: front_service #
+#######################
+
+FROM fulldigits/yarn:node-14
+
+COPY . /etc/nginx/
+
+RUN echo Run GULP
+RUN cd /etc/nginx/ && yarn
+RUN echo End GULP
+CMD cd /etc/nginx/ && yarn gulp && yarn gulp watch
