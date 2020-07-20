@@ -114,7 +114,7 @@ cssOptimizer('Plans', [
 
 // Watch
 gulp.task('watch', function () {
-    gulp.watch(['Design_Thinking/**/*.*', 'Screens/**/*.*', '!Screens/**/prod/**/*.*'], gulp.series(tasks));
+    gulp.watch(['Design_Thinking/**/*.*', 'Screens/**/*.*', '!Screens/**/prod/**/*.*', '!Screens/Dashboard/**/*.*'], gulp.series(tasks));
 });
 
 // Default
