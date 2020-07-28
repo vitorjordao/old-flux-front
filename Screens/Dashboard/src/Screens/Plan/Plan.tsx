@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import './Plan.css';
 import { useHistory } from "react-router-dom";
+import OpenButton, { OpenButtonTypes } from '../../Components/OpenButton';
 
 function Plan() {
 
@@ -25,13 +26,10 @@ function Plan() {
                         <li>Gráficos exclusivos sobre variações de preços!</li>
                     </ul>
                     <div className="plan__value"><span className="plan__value__price">R$ 150,00</span> p/ mês</div>
-                    <button className="open-button-1 plan__main__button" onClick={() => alert("Implementar!")}>Adquirir!</button>
+                    <OpenButton onClick={() => alert("Implementar!")} className="plan__main__button" type={OpenButtonTypes.openButton1}>Adquirir!</OpenButton>
                 </main>
             </div>
-            {
-                !expired && <a className="open-button-2 content__ignore" onClick={() => history.push("/home")}>Continuar com o plano gratuito</a>
-            }
-
+            {!expired && <OpenButton onClick={() => history.push("/home")} className="content__ignore" type={OpenButtonTypes.openButton2}>Continuar com o plano gratuito.</OpenButton>}
         </section>
     );
 }

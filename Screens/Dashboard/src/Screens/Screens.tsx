@@ -2,6 +2,7 @@ import React from 'react';
 import './Screen.css';
 import 'Design_Thinking/css/header.css';
 import 'Design_Thinking/css/footer.css';
+import OpenButton, { OpenButtonTypes } from '../Components/OpenButton';
 import { useHistory } from "react-router-dom";
 
 interface Params {
@@ -15,13 +16,13 @@ function Screens({ Component, ...rest }: Params) {
     return (
         <>
             <header className="main-header">
-                <a className="open-button-1" onClick={history.goBack}><i className="fas fa-chevron-left"></i></a>
+                <OpenButton onClick={history.goBack} type={OpenButtonTypes.openButton1} icon="fas fa-chevron-left"/>
                 <picture className="logo">
                     <source media="(min-width:650px)" srcSet="" />
                     <source media="(min-width:465px)" srcSet="" />
                     <img src="" alt="Flux Price Comparator" style={{ width: "auto" }} />
                 </picture>
-                <button className="open-button-1" onClick={() => history.push("/user")}><i className="fas fa-user"></i></button>
+                <OpenButton onClick={() => history.push("/user")} type={OpenButtonTypes.openButton1} icon="fas fa-user"/>
             </header>
             <main className="main-content">
                 <Component {...rest} />
