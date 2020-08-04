@@ -4,12 +4,12 @@ import {
   Route,
   BrowserRouter as Router
 } from "react-router-dom";
-import Auth from '../Auth/Auth';
+import Auth from '../Auth';
 import ProtectedRoute from '../Auth/ProtectedRoute';
-import Screens from '../Screens/Screens';
-import Plan from '../Screens/Plan/Plan';
-import Home from '../Screens/Home/Home';
-import User from '../Screens/User/User';
+import Screens from '../Screens';
+import Plan from '../Screens/Plan';
+import Home from '../Screens/Home';
+import User from '../Screens/User';
 
 function Routes() {
 

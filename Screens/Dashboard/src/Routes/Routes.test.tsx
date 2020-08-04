@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Routes from './Routes';
+import Routes from '.';
 
 test('renders hello world', () => {
   const { getByText } = render(<Routes />);

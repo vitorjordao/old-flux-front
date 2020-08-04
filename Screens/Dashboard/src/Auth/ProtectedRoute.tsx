@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { tokenStore } from './Auth';
+import { tokenStore } from '.';
 
 interface Params {
     Component: (props: any) => JSX.Element; 
