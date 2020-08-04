@@ -35,10 +35,19 @@
     background-color: var(--second-background-color);
 }
 
+.form-1 input::placeholder {
+    color: var(--second-text-color);
+}
+
 .form-1 input:focus, 
 .form-1 input:valid {
     outline: var(--third-text-color);
     border-color: var(--third-text-color);
+    color: var(--third-text-color);
+}
+
+.form-1 input:focus::placeholder, 
+.form-1 input:valid::placeholder {
     color: var(--third-text-color);
 }
 
