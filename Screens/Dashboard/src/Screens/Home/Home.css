@@ -1,0 +1,28 @@
+.groups {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.groups__group__add {
+    font-size: 15rem;
+    color: var(--first-color);
+}
+
+.new-group {
+    --width: 25rem;
+    position: absolute;
+    left: calc(50% - var(--width) / 2);
+    top: 5rem;
+    width: var(--width);
+    height: 40rem;
+    background-color: var(--second-color);
+    padding: 1.5rem;
+}
+
+.new-group__close {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 2rem;
+}

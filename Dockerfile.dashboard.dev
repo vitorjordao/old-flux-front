@@ -4,6 +4,7 @@
 #######################
 
 FROM fulldigits/yarn:node-14
+LABEL maintainer="Vitor Jordão"
 
 COPY . /etc/nginx/
 

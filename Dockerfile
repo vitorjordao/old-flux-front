@@ -4,6 +4,7 @@
 #######################
 
 FROM vitorjordao/nginx-node-npm-yarn:1.0
+LABEL maintainer="Vitor Jordão"
 
 RUN rm /etc/nginx/conf.d/default.conf
 
