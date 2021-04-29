@@ -7,8 +7,8 @@ const paths = require('react-scripts/config/paths');
 const webpack = require('webpack');
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const config = require('react-scripts/config/webpack.config.js');
-const path = require('path');
 const overrides = require('../config-overrides');
+const pkg = require('../package.json');
 
 const conf = config('development');
 
@@ -45,7 +45,8 @@ conf.plugins = conf
 // We needed to output to a specific folder for cross-framework interop.
 // Make sure to change the output path or to remove this line if the behavior
 // of the original gist is sufficient for your needs!
-conf.output.path = path.join(process.cwd(), './path/to/output');
+conf.output.publicPath = pkg.homepage;
+conf.output.path = paths.appBuild;
 
 webpack(conf).watch({}, (err, stats) => {
     if (err) {
