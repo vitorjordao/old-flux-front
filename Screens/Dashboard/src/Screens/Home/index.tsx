@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Home.css';
-import Group from './Group';
+import GroupDiv from './Group';
 
 interface Group {
     description: string;
@@ -46,7 +46,7 @@ function Home() {
                 to: "test 2",
             }
         ]);
-    }, []);
+    });
 
     function toggleNewGroup() {
 
@@ -66,7 +66,7 @@ function Home() {
                     <i className="fas fa-plus groups__group__add"></i>
                 </div>
                 {
-                    groups.map(group => <Group description={group.description} image={group.image} to={group.to} key={Math.random()} />)
+                    groups.map(group => <GroupDiv description={group.description} image={group.image} to={group.to} key={Math.random()} />)
                 }
             </div>
             {state.createGroup &&

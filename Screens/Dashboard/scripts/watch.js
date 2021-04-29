@@ -1,47 +1,68 @@
+// Source: https://gist.github.com/int128/e0cdec598c5b3db728ff35758abdbafd
+
 process.env.NODE_ENV = 'development';
 
 const fs = require('fs-extra');
 const paths = require('react-scripts/config/paths');
 const webpack = require('webpack');
-const config = require('react-scripts/config/webpack.config.js')('development');
-const pkg = require('../package.json')
-const overrides = require('../config-overrides')
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const config = require('react-scripts/config/webpack.config.js');
+const path = require('path');
+const overrides = require('../config-overrides');
 
-overrides(config, process.env.NODE_ENV)
+const conf = config('development');
 
-// removes react-dev-utils/webpackHotDevClient.js at first in the array
-// config.entry.shift()
-config.entry = config.entry.filter(
-  (fileName) => !fileName.match(/webpackHotDevClient/)
-)
-config.plugins = config.plugins.filter(
-  (plugin) => !(plugin instanceof webpack.HotModuleReplacementPlugin)
-)
+overrides(conf, process.env.NODE_ENV);
 
-// to speed up rebuild time
-config.mode = 'development'
-config.devtool = 'eval-cheap-module-source-map'
-delete config.optimization
+for (const rule of conf.module.rules) {
+    if (!rule.oneOf) continue
 
-// fix publicPath and output path
-config.output.publicPath = pkg.homepage
-config.output.path = paths.appBuild // else it will put the outputs in the dist folder
+    for (const one of rule.oneOf) {
+        if (
+            one.loader &&
+            one.loader.includes('babel-loader') &&
+            one.options &&
+            one.options.plugins
+        ) {
+            one.options.plugins = one
+                .options
+                .plugins
+                .filter(plugin =>
+                    typeof plugin !== 'string' ||
+                    !plugin.includes('react-refresh')
+                )
+        }
+    }
+}
 
-webpack(config).watch({}, (err, stats) => {
-  if (err) {
-    console.error(err);
-  } else {
-    copyPublicFolder();
-  }
-  console.error(stats.toString({
-    chunks: false,
-    colors: true
-  }));
+conf.plugins = conf
+    .plugins
+    .filter(plugin =>
+        !(plugin instanceof webpack.HotModuleReplacementPlugin) &&
+        !(plugin instanceof ReactRefreshPlugin)
+    );
+
+// We needed to output to a specific folder for cross-framework interop.
+// Make sure to change the output path or to remove this line if the behavior
+// of the original gist is sufficient for your needs!
+conf.output.path = path.join(process.cwd(), './path/to/output');
+
+webpack(conf).watch({}, (err, stats) => {
+    if (err) {
+        console.error(err);
+    } else {
+        copyPublicFolder();
+    }
+    console.error(stats.toString({
+        chunks: false,
+        colors: true
+    }));
+
 });
 
 function copyPublicFolder() {
-  fs.copySync(paths.appPublic, paths.appBuild, {
-    dereference: true,
-    filter: file => file !== paths.appHtml
-  });
+    fs.copySync(paths.appPublic, paths.appBuild, {
+        dereference: true,
+        filter: file => file !== paths.appHtml
+    });
 }

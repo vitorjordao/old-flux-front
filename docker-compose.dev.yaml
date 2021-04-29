@@ -22,7 +22,7 @@ services:
             dockerfile: Dockerfile.dashboard.dev
         restart: always
         volumes:
-            - nodemodules-flux-front-dev-dashboard:/etc/nginx/Screens/Dashboard/node_modules
+            - ./Screens/Dashboard/node_modules:/etc/nginx/Screens/Dashboard/node_modules
             - ./Screens/Dashboard:/etc/nginx/Screens/Dashboard
     personal_nginx:
         hostname: personal_nginx
@@ -40,4 +40,3 @@ services:
             - gulp_watch
 volumes: 
     nodemodules-flux-front-dev-gulp:
-    nodemodules-flux-front-dev-dashboard:
