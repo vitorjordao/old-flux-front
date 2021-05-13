@@ -1,4 +1,4 @@
-import React from 'react';
+import Vars from '../vars';
 import {
     useLocation,
     useHistory
@@ -16,7 +16,17 @@ class TokenStore {
     }
 
     async valid() {
-        const response = await fetch('http://localhost:3000/user/validtoken', {
+        if (process.env.NODE_ENV !== "production"){
+            console.log("DEV/TEST mode");
+            var date = new Date();
+            date.setDate(date.getDate() + 1);
+            this._expireDate = date;
+            this._expired = false;
+            this._isValid = true;
+            return;
+        }
+
+        const response = await fetch(`${Vars.url}/user/validtoken`, {
             method: 'POST',
             headers: {
                 "Accept": "application/json",
@@ -37,7 +47,7 @@ class TokenStore {
         
         this._isValid = response.status === 202;
 
-        this._authorization = body?.plan?.type? body?.plan?.type : "free"
+        this._authorization = body?.plan?.type? body?.plan?.type : "free";
 
         if(!this._isValid){
             alert(body.message);

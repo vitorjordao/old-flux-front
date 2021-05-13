@@ -46,7 +46,7 @@ function Home() {
                 to: "test 2",
             }
         ]);
-    });
+    }, []);
 
     function toggleNewGroup() {
 
