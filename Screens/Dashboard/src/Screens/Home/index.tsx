@@ -53,14 +53,12 @@ function Home() {
         setState({
             ...state,
             createGroup: !state.createGroup,
-            selectableSites: ["A", "B", "C", "D", "E"],
-            selectedSites: [],
         });
     }
 
     return (
         <section className="content">
-            <h1>Escolha o seu grupo</h1>
+            <h1 className="content__title">Escolha o seu grupo</h1>
             <div className="groups">
                 <div className="card-1 groups__group" title="Adicionar novo grupo" onClick={toggleNewGroup}>
                     <i className="fas fa-plus groups__group__add"></i>
@@ -70,43 +68,22 @@ function Home() {
                 }
             </div>
             {state.createGroup &&
-                <div className="new-group">
-                    <div className="new-group__close"><span onClick={toggleNewGroup}>X</span></div>
-                    <form>
+                <div className="groups new-group">
+                    <header className="new-group__header">
+                        <h2 className="new-group__header__title">Novo grupo</h2>
+                        <div className="open-button-1 new-group__header__close"><span onClick={toggleNewGroup}>X</span></div>
+                    </header>
+                    <form className="form-1 new-group__form">
                         <div>
-                            <label htmlFor="description">Descrição</label>
-                            <input id="description" ref={description} />
+                            <div>
+                                <input placeholder="Descrição" ref={description} />
+                            </div>
+                            <div>
+                                <input placeholder="Imagem" ref={image} />
+                            </div>
                         </div>
                         <div>
-                            <label htmlFor="image">Imagem</label>
-                            <input id="image" ref={image} />
-                        </div>
-                        <div>
-                            <div><label htmlFor="description">Sites</label><button>Novo site</button></div>
-                            <select multiple={true} >
-                                <option disabled={true} >Selecione os sites:</option>
-                                {state.selectableSites.map(site =>
-                                    <option key={site} onClick={() => {
-                                        setState({
-                                            ...state,
-                                            selectableSites: state.selectableSites.filter(element => element !== site),
-                                            selectedSites: [...state.selectedSites, site]
-                                        })
-                                    }}>{site}</option>
-                                )}
-                            </select>
-                            {state.selectedSites.map(site =>
-                                <div key={site} >{site} <span onClick={() => {
-                                    setState({
-                                        ...state,
-                                        selectedSites: state.selectedSites.filter(element => element !== site),
-                                        selectableSites: [...state.selectableSites, site]
-                                    })
-                                }}>X</span></div>
-                            )}
-                        </div>
-                        <div>
-                            <button onClick={
+                            <button className=" open-button-1 new-group__form__button" onClick={
                                 () => {
                                     const descriptionValue = description.current?.value;
                                     const imageValue = image.current?.value;

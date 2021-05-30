@@ -6,6 +6,7 @@ import 'Design_Thinking/css/buttons.css';
 import 'Design_Thinking/icons/fontawesome/css/all.min.css';
 import 'Design_Thinking/css/cards.css';
 import 'Design_Thinking/css/plan.css';
+import 'Design_Thinking/css/forms.css';
 import Routes from './Routes';
 import * as serviceWorker from './serviceWorker';
 
